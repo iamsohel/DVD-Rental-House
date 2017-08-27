@@ -20,6 +20,7 @@ namespace DVDRentalHouse.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+     
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,5 +30,12 @@ namespace DVDRentalHouse.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DVDRentalHouse.Models.Customer> Customers { get; set; }
+        public System.Data.Entity.DbSet<DVDRentalHouse.Models.Movie> Movies { get; set; }
+
+        public System.Data.Entity.DbSet<DVDRentalHouse.Models.MembershipType> MembershipTypes { get; set; }
+
+        public System.Data.Entity.DbSet<DVDRentalHouse.Models.Genre> Genres { get; set; }
     }
 }
